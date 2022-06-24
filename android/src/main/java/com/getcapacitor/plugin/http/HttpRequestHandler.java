@@ -21,6 +21,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -449,12 +450,17 @@ public class HttpRequestHandler {
 
         byte[] buffer = new byte[1024];
         int len;
+        long lastEmit = new Date().getTime();
 
         while ((len = connectionInputStream.read(buffer)) > 0) {
             fileOutputStream.write(buffer, 0, len);
 
             bytes += len;
-            progress.emit(bytes, maxBytes);
+            
+            if (lastEmit + 1000 < new Date().getTime() || bytes == maxBytes) {
+                progress.emit(bytes, maxBytes);
+                lastEmit = new Date().getTime();
+            }
         }
 
         connectionInputStream.close();
