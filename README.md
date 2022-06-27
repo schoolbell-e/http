@@ -6,7 +6,7 @@
 
 ## 설치
 ```terminal
-npm i git+https://github.com/schoolbell-e/http.git
+$ npm i git+https://github.com/schoolbell-e/http.git
 ```
 
 ## 참고
