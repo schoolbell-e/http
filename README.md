@@ -1,4 +1,4 @@
-# @schoolbell-e/http
+# schoolbell-e/http
 <a target="_blank" href="https://github.com/capacitor-community/http#readme">@capacitor-community/http</a>의 안드로이드 기기에서의 문제를 임시로 해결하기 위해 포크하여 수정한 레포지터리
 
 ## 문제 
